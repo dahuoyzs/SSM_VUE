@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<!-- 数据库连接驱动包 -->
+  <classPathEntry location="E:\zheng\java\jars\util\mysql-connector-java-5.1.7-bin.jar" />
+
+  <context id="DB2Tables" targetRuntime="MyBatis3">
+  	<!-- 数据库连接URL -->
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+        connectionURL="jdbc:mysql://localhost:3306/ssmww"
+        userId="root"
+        password="123456">
+    </jdbcConnection>
+    
+	<!-- 数据库是否使用大浮点型 -->
+    <javaTypeResolver >
+      <property name="forceBigDecimals" value="false" />
+    </javaTypeResolver>
+    
+	<!-- 数据库生成的Model文件存放的包位置 -->
+    <javaModelGenerator targetPackage="com.sw.model" targetProject=".\src"></javaModelGenerator>
+	<!-- 数据库生成的xml映射文件存放的包位置 -->
+    <sqlMapGenerator targetPackage="com.sw.dao"  targetProject=".\src"></sqlMapGenerator>
+	<!-- 数据库生成的dao接口文件存放的包位置 -->
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.sw.dao"  targetProject=".\src"></javaClientGenerator>
+    
+    <!-- 数据库生成哪些表 -->
+    <table tableName="address"></table>
+    <table tableName="goods"></table>
+    <table tableName="goodsorders"></table>
+    <table tableName="orderdetails"></table>
+    <table tableName="sale"></table>
+    
+  </context>
+</generatorConfiguration>
